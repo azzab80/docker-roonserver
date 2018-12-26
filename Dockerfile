@@ -12,6 +12,8 @@ ENV ROON_ID_DIR /data
 
 VOLUME [ "/app", "/data", "/music", "/backup" ]
 
+#RUN mkdir /tmp
 ADD run.sh /
-ENTRYPOINT /run.sh
+RUN chmod +x run.sh
+ENTRYPOINT ["/run.sh"]
 

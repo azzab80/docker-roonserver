@@ -32,3 +32,4 @@ Example start:
   -v /mnt/roon-backup:/backup \
   azzab80/docker-roonserver
 
+/dev/snd/controlC1

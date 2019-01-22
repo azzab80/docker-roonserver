@@ -5,15 +5,19 @@ RUN apt-get update \
         && apt-get -y upgrade \
         && apt-get -y install bash curl bzip2 ffmpeg cifs-utils alsa-utils
 
-ENV ROON_SERVER_PKG RoonServer_linuxx64.tar.bz2
-ENV ROON_SERVER_URL http://download.roonlabs.com/builds/${ROON_SERVER_PKG}
+WORKDIR /app/
+
+# Install Roon
+RUN curl  http://download.roonlabs.com/builds/RoonServer_linuxx64.tar.bz2 -O \
+ && tar -xjf RoonServer_linuxx64.tar.bz2 \
+ && rm RoonServer_linuxx64.tar.bz2
+
 ENV ROON_DATAROOT /data
 ENV ROON_ID_DIR /data
 
 VOLUME [ "/app", "/data", "/music", "/backup" ]
 
-#RUN mkdir /tmp
-ADD run.sh /
+ADD run.sh /app/
 RUN chmod +x run.sh
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/app/run.sh"]
 

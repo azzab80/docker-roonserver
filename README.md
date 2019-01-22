@@ -22,3 +22,14 @@ Example start:
   Have fun!
   
   Steef
+  
+  docker run --d \
+  --net=host \
+  -e TZ="Australia\Melbourne" \
+  -v /opt/roon-app:/app \
+  -v /opt/roon-data:/data \
+  -v /mnt/music:/music \
+  -v /mnt/roon-backup:/backup \
+  azzab80/docker-roonserver
+
+/dev/snd/controlC1

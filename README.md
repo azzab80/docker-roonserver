@@ -28,7 +28,7 @@ Example start:
   -e TZ="Australia\Melbourne" \
   -v /opt/roon-app:/app \
   -v /opt/roon-data:/data \
-  -v /mnt/music:/music \
+  -v /mnt/sda1/Music:/music \
   -v /mnt/roon-backup:/backup \
   azzab80/docker-roonserver
 
